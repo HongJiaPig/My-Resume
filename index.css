@@ -1,0 +1,401 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Racing+Sans+One");
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@font-face {
+	font-family: 'Noto Sans TC';
+	font-style: normal;
+	font-weight: 100;
+	src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.woff2) format('woff2'), url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.woff) format('woff'), url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.otf) format('opentype');
+}
+@font-face {
+	font-family: 'Noto Sans TC';
+	font-style: normal;
+	font-weight: 300;
+	src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.woff2) format('woff2'), url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.woff) format('woff'), url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.otf) format('opentype');
+}
+@font-face {
+	font-family: 'Noto Sans TC';
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff2) format('woff2'), url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff) format('woff'), url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.otf) format('opentype');
+}
+@font-face {
+	font-family: 'Noto Sans TC';
+	font-style: normal;
+	font-weight: 500;
+	src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff2) format('woff2'), url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff) format('woff'), url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.otf) format('opentype');
+}
+@font-face {
+	font-family: 'Noto Sans TC';
+	font-style: normal;
+	font-weight: 700;
+	src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff2) format('woff2'), url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff) format('woff'), url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.otf) format('opentype');
+}
+@font-face {
+	font-family: 'Noto Sans TC';
+	font-style: normal;
+	font-weight: 900;
+	src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Black.woff2) format('woff2'), url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Black.woff) format('woff'), url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Black.otf) format('opentype');
+}
+
+html, body {
+	font-family: "Noto Sans TC", "Roboto";
+	font-size: 14px;
+	color: #333333;
+	line-height:150%;
+	margin:0;
+	padding:0;
+}
+
+/*Loading 畫面*/
+.loading {
+	position: fixed;
+	z-index: 5;
+	background: rgba(0,0,0,0.7);
+	width: 100%;
+	height: 100%;
+	display: flex;
+    align-items: center;
+}
+.loading .wrapper {
+    font-size: 25px; /* 1em */
+    width: 8em;
+    height: 8em;
+    position: relative;
+    margin: 100px auto;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1em dashed rgba(138,189,195,0.5);
+    box-shadow: 
+        inset 0 0 2em rgba(255,255,255,0.3),
+        0 0 0 0.7em rgba(255,255,255,0.3);
+    line-height: 6em;
+    text-align: center;
+    font-family: 'Racing Sans One', "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue","Helvetica","Arial","Lucida Grande",sans-serif;
+    color: #eee;
+    text-shadow: 0 .04em rgba(255,255,255,0.9);
+    -webkit-animation: steam 3.5s linear infinite;
+    animation: steam 3.5s linear infinite;
+}
+.loading .wrapper:after, 
+.loading .wrapper:before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    z-index: -1;
+    border-radius: inherit;
+    box-shadow: inset 0 0 2em rgba(255,255,255,0.3);
+    border: 1em dashed rgba(138,189,195,0.2);
+}
+.loading .wrapper:before {
+    top: 1em; bottom: 1em; right: 1em; left: 1em; 
+    border: 1em dashed rgba(138,189,195,0.4);
+}
+.loading .inner {
+    width: 100%;
+    height: 100%;
+    -webkit-animation: steam 3.5s linear reverse infinite;
+    animation: steam 3.5s linear reverse infinite;
+	display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.loading .inner span {
+    display: inline-block;
+    -webkit-animation: loading-1 1.5s ease-out infinite;
+    animation: loading-1 1.5s ease-out infinite;
+}
+.loading .inner span:nth-child(1)  { 
+    -webkit-animation-name: loading-1;
+    animation-name: loading-1;
+}
+.loading .inner span:nth-child(2)  { 
+    -webkit-animation-name: loading-2;
+    animation-name: loading-2;
+}
+.loading .inner span:nth-child(3)  { 
+    -webkit-animation-name: loading-3;
+    animation-name: loading-3;
+}
+.loading .inner span:nth-child(4)  { 
+    -webkit-animation-name: loading-4;
+    animation-name: loading-4;
+}
+.loading .inner span:nth-child(5)  { 
+    -webkit-animation-name: loading-5;
+    animation-name: loading-5;
+}
+.loading .inner span:nth-child(6)  { 
+    -webkit-animation-name: loading-6;
+    animation-name: loading-6;
+}
+.loading .inner span:nth-child(7)  { 
+    -webkit-animation-name: loading-7;
+    animation-name: loading-7;
+}
+@-webkit-keyframes steam {
+    from { }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes steam {
+    from { }
+    to { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-webkit-keyframes loading-1 {
+    0% { }
+    14.28% { opacity: 0.3; }
+}
+@-webkit-keyframes loading-2 {
+    0% { }
+    28.57% { opacity: 0.3; }
+}
+@-webkit-keyframes loading-3 {
+    0% { }
+    42.86% { opacity: 0.3; }
+}
+@-webkit-keyframes loading-4 {
+    0% { }
+    57.14% { opacity: 0.3; }
+}
+@-webkit-keyframes loading-5 {
+    0% { }
+    71.43% { opacity: 0.3; }
+}
+@-webkit-keyframes loading-6 {
+    0% { }
+    85.71% { opacity: 0.3; }
+}
+@-webkit-keyframes loading-7 {
+    0% { }
+    100% { opacity: 0.3; }
+}
+@keyframes loading-1 {
+    0% { }
+    14.28% { opacity: 0.3; }
+}
+@keyframes loading-2 {
+    0% { }
+    28.57% { opacity: 0.3; }
+}
+@keyframes loading-3 {
+    0% { }
+    42.86% { opacity: 0.3; }
+}
+@keyframes loading-4 {
+    0% { }
+    57.14% { opacity: 0.3; }
+}
+@keyframes loading-5 {
+    0% { }
+    71.43% { opacity: 0.3; }
+}
+@keyframes loading-6 {
+    0% { }
+    85.71% { opacity: 0.3; }
+}
+@keyframes loading-7 {
+    0% { }
+    100% { opacity: 0.3; }
+}
+
+/*選單部分*/
+nav .menu {
+	position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgb(245, 245, 245);
+    z-index: 1;
+    transition: transform 0.4s;
+    transform: translateX(-80px);
+    padding: 30px;
+    box-sizing: border-box;
+	font-size: 28px;
+	line-height: 150%;
+}
+nav.isShow .menu {
+	transform: translateX(0px);
+}
+nav .hamburger {
+	transition: transform 0.4s;
+    position: fixed;
+	z-index: 3;
+}
+/*內容區*/
+main {
+    overflow: hidden;
+}
+main article {
+	transition: transform 0.4s;
+	position: relative;
+    z-index: 2;
+}
+main article img {
+	max-width: 100%;
+}
+main article a {
+	text-decoration: unset;
+}
+/*履歷部分*/
+.ResumeHead {
+    background: #32c4e8;
+    color: #fcf8e0;
+    padding: 45px 30px 30px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 40px;
+    font-weight: bold;
+}
+.ResumeContent {
+    color: #fcf8e0;
+	display: flex;
+}
+.ResumeContent a {
+	color: #fcf8e0;
+}
+.ResumeContent .Experience {
+	flex: 3;
+	background: #515253;
+	padding: 30px;
+    box-sizing: border-box;
+}
+.ResumeContent .Introduction {
+	flex: 2;
+	background: #414042;
+	padding: 30px;
+    box-sizing: border-box;
+}
+.ResumeContent section{
+	margin-bottom: 40px;
+}
+.ResumeContent .Subject {
+	color: #32c4e8;
+	display: flex;
+	align-items: center;
+	font-size: 28px;
+    font-weight: bold;
+    line-height: 150%;
+	letter-spacing: 2px;
+	margin-bottom: 20px;
+}
+.ResumeContent .Subject hr {
+	flex: 1;
+	border: 0;
+    border-top: 1px solid #fcf8e0;
+    height: 0;
+    margin-left: 15px;
+}
+.ResumeContent .Experience .info {
+	font-size: 16px;
+    letter-spacing: 1.5px;
+}
+.ResumeContent .Experience .info > div {
+    margin-bottom: 5px;
+}
+.ResumeContent .info .title {
+	font-weight: bold;
+}
+.ResumeContent .Experience .info ol {
+	margin: 0;
+	padding-left: 30px;
+}
+.ResumeContent .Introduction section:first-child {
+	position: relative;
+    height: 0;
+	padding-bottom: 80%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #2ac2e3;
+}
+.ResumeContent .Introduction section {
+	width: 80%;
+    margin: 0 auto 40px;
+}
+.ResumeContent .Introduction .photo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.ResumeContent .Introduction dl {
+	background: #504f50;
+	padding: 20px 20px 10px;
+	box-sizing: border-box;
+}
+.ResumeContent .Introduction dt {
+	display: flex;
+	align-items: center;
+    margin-bottom: 10px;
+}
+.ResumeContent .Introduction .icon {
+	background: #32c4e8;
+    color: #fcf8e0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	margin-right: 5px;
+	font-size: 18px;
+}
+.ResumeContent .Introduction .info p {
+    margin: 5px 0 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+	.ResumeContent {
+		flex-flow: column-reverse;
+	}
+	.ResumeContent section {
+		width: 90%;
+		margin: 0 auto 40px;
+	}
+	.ResumeContent .Introduction{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+	}
+	.ResumeContent .Introduction section {
+		width: 90%;
+	}
+	.ResumeContent .Introduction section:first-child {
+		padding-bottom: 40%;
+		width: 40%;
+		margin: 0 5% 40px 0;
+	}
+	.ResumeContent .Introduction section:nth-child(2) {
+		width: 45%;
+		margin: 0 0 40px;
+	}
+}
+@media only screen and (max-width: 700px) {
+	.ResumeContent section {
+		width: 100%;
+	}
+	.ResumeContent .Introduction section {
+		width: 100%;
+	}
+	.ResumeContent .Introduction section:first-child {
+		padding-bottom: 50%;
+		margin-right: 0;
+		width: 50%;
+	}
+	.ResumeContent .Introduction section:nth-child(2) {
+		width: 100%;
+	}
+}
+@media only screen and (max-width: 500px) {
+	.ResumeContent .Introduction section:first-child {
+		padding-bottom: 80%;
+		width: 80%;
+	}
+	.ResumeContent .Experience .info {
+		font-size: 14px;
+		letter-spacing: 1px;
+	}
+}
