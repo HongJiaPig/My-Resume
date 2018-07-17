@@ -290,6 +290,7 @@ main article a {
 .ResumeContent .Experience .info {
 	font-size: 16px;
     letter-spacing: 1.5px;
+	text-align: justify;
 }
 .ResumeContent .Experience .info > div {
     margin-bottom: 5px;
